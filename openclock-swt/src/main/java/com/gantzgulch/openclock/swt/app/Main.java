@@ -1,10 +1,6 @@
 package com.gantzgulch.openclock.swt.app;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
@@ -28,9 +24,10 @@ public class Main implements Runnable, SelectionListener {
 
 	private Label positioningLabel;
 
-	private Label timeLabel;
-	
-	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss Z");
+	private Clock clock0;
+	private Clock clock1;
+	private Clock clock2;
+	private Clock clock3;
 	
 	public Main(final String[] args) {
 		this.args = args;
@@ -38,19 +35,6 @@ public class Main implements Runnable, SelectionListener {
 		createUi3();
 	}
 
-	private void update() {
-	
-		final String dateString = sdf.format(new Date());
-		
-		display.asyncExec(new Runnable() {
-			   public void run() {
-			      timeLabel.setText(dateString);
-			   }
-			});
-		
-	}
-	
-	
 	private void createUi1() {
 
 		display = new Display();
@@ -116,30 +100,27 @@ public class Main implements Runnable, SelectionListener {
 		gridLayout.marginWidth = 20;
 		
 		shell.setLayout(gridLayout);
-				
-		final GridData lData = new GridData(GridData.FILL_BOTH);
-		
-		positioningLabel = new Label(shell, SWT.BORDER);
-		positioningLabel.setText("Temp");
-		positioningLabel.setLayoutData( lData);
 
-		final GridData bData = new GridData(GridData.FILL_BOTH);
-		
-		final Button b1 = new Button(shell, SWT.PUSH);
-		b1.setText("B1");
-		b1.addMouseMoveListener(this::showSize);
-		b1.setLayoutData(bData);
+		final GridData clock0GridData = new GridData(GridData.FILL_BOTH);
+		clock0 = new Clock(shell, "America/Detroit");
+		clock0.setLayoutData(clock0GridData);
 
-		final GridData tData = new GridData(GridData.FILL_BOTH);
+		final GridData clock1GridData = new GridData(GridData.FILL_BOTH);
+		clock1 = new Clock(shell, "utc");
+		clock1.setLayoutData(clock1GridData);
+
+		final GridData clock2GridData = new GridData(GridData.FILL_BOTH);
+		clock2 = new Clock(shell, "America/Detroit");
+		clock2.setLayoutData(clock2GridData);
 		
-		timeLabel = new Label(shell, SWT.BORDER);
-		timeLabel.setText("The time.");
-		timeLabel.setLayoutData(tData);
+		final GridData clock3GridData = new GridData(GridData.FILL_BOTH);
+		clock3 = new Clock(shell, "America/Detroit");
+		clock3.setLayoutData(clock3GridData);
 		
 		
 		
-		shell.addMouseMoveListener( this::showSize);
-		positioningLabel.addMouseMoveListener(this::showSize);
+		// shell.addMouseMoveListener( this::showSize);
+		// positioningLabel.addMouseMoveListener(this::showSize);
 		
 
 	}
@@ -162,12 +143,8 @@ public class Main implements Runnable, SelectionListener {
 
 		final Timer timer = new Timer();
 		
-		timer.scheduleAtFixedRate(new TimerTask() {
-			@Override
-			public void run() {
-				update();
-			}
-		}, 1000, 500);
+		final ClockTimerTask timerTask = new ClockTimerTask(clock0, clock1, clock2, clock3);
+		timer.scheduleAtFixedRate( timerTask, 1000, 500);
 		
 		shell.pack();
 		
