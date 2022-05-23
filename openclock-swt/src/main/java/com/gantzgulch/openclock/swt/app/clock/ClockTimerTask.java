@@ -1,4 +1,4 @@
-package com.gantzgulch.openclock.swt.app;
+package com.gantzgulch.openclock.swt.app.clock;
 
 import java.util.TimerTask;
 
