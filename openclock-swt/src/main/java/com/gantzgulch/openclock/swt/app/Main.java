@@ -2,14 +2,14 @@ package com.gantzgulch.openclock.swt.app;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TimeZone;
 import java.util.Timer;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.ControlListener;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
@@ -18,10 +18,9 @@ import org.eclipse.swt.widgets.Shell;
 import com.gantzgulch.logging.core.GGLogger;
 import com.gantzgulch.openclock.swt.app.clock.AbstractClockFace;
 import com.gantzgulch.openclock.swt.app.clock.ClockFace;
+import com.gantzgulch.openclock.swt.app.clock.ClockFaceFactory;
 import com.gantzgulch.openclock.swt.app.clock.ClockTimerTask;
-import com.gantzgulch.openclock.swt.app.clock.digital.Clock12Hour14Segment;
-import com.gantzgulch.openclock.swt.app.clock.digital.Clock24Hour7Segment;
-import com.gantzgulch.openclock.swt.app.config.ClockConfig;
+import com.gantzgulch.openclock.swt.app.config.ClockFaceConfig;
 import com.gantzgulch.openclock.swt.app.config.Config;
 
 public class Main implements Runnable, ControlListener {
@@ -49,7 +48,7 @@ public class Main implements Runnable, ControlListener {
 		
 		shell = new Shell(display);
 		shell.setText("OpenClock");
-		shell.setBackground( display.getSystemColor(SWT.COLOR_BLACK));
+		shell.setBackground( config.getDisplayConfig().getBackground(display.getSystemColor(SWT.COLOR_BLACK)));
 		shell.setBackgroundMode(SWT.INHERIT_FORCE);
 
 		final GridLayout gridLayout = new GridLayout();
@@ -59,47 +58,27 @@ public class Main implements Runnable, ControlListener {
 		gridLayout.marginWidth = 20;
 		
 		shell.setLayout(gridLayout);
-		shell.addControlListener( this);
-		shell.addDisposeListener( new DisposeListener() {
+		shell.addControlListener( new ControlAdapter() {
 			@Override
-			public void widgetDisposed(DisposeEvent e) {
-				// System.exit(0);;
+			public void controlResized(final ControlEvent e) {
+				shell.layout();
 			}
 		});
 
-		for(final ClockConfig clockConfig : config.getClockConfigs()) {
+		for(final ClockFaceConfig clockConfig : config.getClockConfigs()) {
 
 			LOG.info("Building: %s", clockConfig);
 			
 			final GridData clockGridData = new GridData(SWT.CENTER, SWT.CENTER, true, true);
-			final AbstractClockFace clock = createClock(shell, clockConfig);
+			
+			final AbstractClockFace clock = ClockFaceFactory.createClockFace(shell, clockConfig);
+			
 			clock.setLayoutData(clockGridData);
 			
 			clocks.add(clock);
 		}
 		
 	}
-	
-	private AbstractClockFace createClock(final Shell shell, final ClockConfig clockConfig) {
-		
-		final TimeZone timezone = TimeZone.getTimeZone(clockConfig.getTimeZone());
-		final String title = clockConfig.getTitle();
-		
-		if(  "Digital24Hour".equals(clockConfig.getType()) ){
-			
-			return new Clock24Hour7Segment(shell, title, timezone);
-			
-		}
-
-		if(  "Digital12Hour".equals(clockConfig.getType()) ){
-			
-			return new Clock12Hour14Segment(shell, title, timezone);
-			
-		}
-		
-		return null;
-	}
-
 
 	@Override
 	public void controlResized(final ControlEvent e) {
@@ -115,6 +94,8 @@ public class Main implements Runnable, ControlListener {
 
 		LOG.info("run: Running...");
 
+		ToStringBuilder.setDefaultStyle(ToStringStyle.SHORT_PREFIX_STYLE);
+		
 		final Timer timer = new Timer(true);
 		
 		final ClockTimerTask timerTask = new ClockTimerTask(clocks);

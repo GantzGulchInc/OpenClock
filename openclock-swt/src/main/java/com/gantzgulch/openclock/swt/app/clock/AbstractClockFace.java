@@ -2,10 +2,7 @@ package com.gantzgulch.openclock.swt.app.clock;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.SWTException;
-import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 
 public abstract class AbstractClockFace extends Composite implements ClockFace {
 

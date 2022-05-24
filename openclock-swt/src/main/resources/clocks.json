@@ -1,38 +1,142 @@
 {
 	"display": {
-		"columns": 2
+		"columns": 2,
+		"background": "#000000"
 	},
-	"clocks": [
+	"clockFaces": [
 		{
 			"title": "UTC 12 Hour",
 			"type": "Digital12Hour",
-			"timeZone": "utc"
+			"timeZone": "utc", 
+			"parameters": {
+				"titleFont": {
+					"name": "Comic Code",
+					"height": 24,
+					"bold": false,
+					"italic": false
+				},
+				"clockFont": {
+					"name": "DSEG14Modern",
+					"height": 36,
+					"bold": true,
+					"italic": false
+				},
+				"color1": "#00C800",
+				"color2": "#001400",
+				"color3": ""
+			}
 		},
 		{
 			"title": "UTC 24 Hour",
 			"type": "Digital24Hour",
-			"timeZone": "utc"
+			"timeZone": "utc",
+			"parameters": {
+				"titleFont": {
+					"name": "Comic Code",
+					"height": 24,
+					"bold": false,
+					"italic": false
+				},
+				"clockFont": {
+					"name": "DSEG7Modern",
+					"height": 36,
+					"bold": true,
+					"italic": false
+				},
+				"color1": "",
+				"color2": "",
+				"color3": ""
+			}
 		},
 		{
 			"title": "Detroit 12 Hour",
 			"type": "Digital12Hour",
-			"timeZone": "America/Detroit"
+			"timeZone": "America/Detroit",
+			"parameters": {
+				"titleFont": {
+					"name": "Comic Code",
+					"height": 24,
+					"bold": false,
+					"italic": false
+				},
+				"clockFont": {
+					"name": "DSEG14Modern",
+					"height": 36,
+					"bold": true,
+					"italic": false
+				},
+				"color1": "",
+				"color2": "",
+				"color3": ""
+			}
 		},
 		{
 			"title": "Detroit 24 Hour",
 			"type": "Digital24Hour",
-			"timeZone": "America/Detroit"
+			"timeZone": "America/Detroit",
+			"parameters": {
+				"titleFont": {
+					"name": "Comic Code",
+					"height": 24,
+					"bold": false,
+					"italic": false
+				},
+				"clockFont": {
+					"name": "DSEG7Modern",
+					"height": 36,
+					"bold": true,
+					"italic": false
+				},
+				"background": "#101020",
+				"color1": "",
+				"color2": "",
+				"color3": ""
+			}
 		},
 		{
 			"title": "Los Angeles 12 Hour",
 			"type": "Digital12Hour",
-			"timeZone": "America/Los_Angeles"
+			"timeZone": "America/Los_Angeles",
+			"parameters": {
+				"titleFont": {
+					"name": "Comic Code",
+					"height": 24,
+					"bold": false,
+					"italic": false
+				},
+				"clockFont": {
+					"name": "DSEG14Modern",
+					"height": 36,
+					"bold": true,
+					"italic": false
+				},
+				"color1": "",
+				"color2": "",
+				"color3": ""
+			}
 		},
 		{
 			"title": "Los Angeles 24 Hour",
 			"type": "Digital24Hour",
-			"timeZone": "America/Los_Angeles"
+			"timeZone": "America/Los_Angeles",
+			"parameters": {
+				"titleFont": {
+					"name": "Comic Code",
+					"height": 24,
+					"bold": false,
+					"italic": false
+				},
+				"clockFont": {
+					"name": "DSEG7Modern",
+					"height": 36,
+					"bold": true,
+					"italic": false
+				},
+				"color1": "",
+				"color2": "",
+				"color3": ""
+			}
 		}
-	]
+ 	]
 	
 }

@@ -2,7 +2,6 @@ package com.gantzgulch.openclock.swt.app.clock.digital;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -10,21 +9,16 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 
 import com.gantzgulch.openclock.swt.app.clock.AbstractClockFace;
-import com.gantzgulch.openclock.swt.app.util.FontUtil;
+import com.gantzgulch.openclock.swt.app.config.ClockFaceConfig;
 
-public class Clock14Segment extends AbstractClockFace {
+public class ClockFaceDigital extends AbstractClockFace {
 
-	private String title;
+	private final ClockFaceConfig clockFaceConfig;
 	
-	private Font font;
-	private Color color;
-	private Color shadowColor;
-
-	private TimeZone tz;
-
 	private String timeFormat;
 	private String timeShadow;
 	private SimpleDateFormat timeFormatter;
@@ -37,37 +31,26 @@ public class Clock14Segment extends AbstractClockFace {
 	private DigitalSegments timeDisplay;
 	private DigitalSegments dateDisplay;
 
-	public Clock14Segment(//
+	public ClockFaceDigital(//
 			final Composite parent, //
-			final String title, //
-			final Font font, //
-			final Color color, //
-			final Color shadowColor, //
-			final TimeZone timezone, //
+			final ClockFaceConfig clockFaceConfig, //
 			final String timeFormat, //
 			final String timeShadow, //
 			final String dateFormat, //
 			final String dateShadow) {
 
 		super(parent);
-
-		this.title = title;
-		
-		this.font = font;
-		this.color = color;
-		this.shadowColor = shadowColor;
-
-		this.tz = timezone;
+		this.clockFaceConfig = clockFaceConfig;
 
 		this.timeFormat = timeFormat;
 		this.timeShadow = timeShadow;
 		this.timeFormatter = new SimpleDateFormat(this.timeFormat);
-		this.timeFormatter.setTimeZone(this.tz);
+		this.timeFormatter.setTimeZone(this.clockFaceConfig.getTimeZone());
 
 		this.dateFormat = dateFormat;
 		this.dateShadow = dateShadow;
 		this.dateFormatter = new SimpleDateFormat(this.dateFormat);
-		this.dateFormatter.setTimeZone(this.tz);
+		this.dateFormatter.setTimeZone(this.clockFaceConfig.getTimeZone());
 
 		createUi();
 	}
@@ -81,16 +64,31 @@ public class Clock14Segment extends AbstractClockFace {
 		gridLayout.marginWidth = 20;
 
 		this.setLayout(gridLayout);
+		this.setBackground(clockFaceConfig.getParameters().getBackground(null));
 
+		//
+		// Title
+		//
 		this.titleLabel = new Label(this, SWT.NONE);
-		this.titleLabel.setText(this.title);
-		this.titleLabel.setFont( FontUtil.updateFont(getDisplay().getSystemFont(), 24));
+		this.titleLabel.setText(this.clockFaceConfig.getTitle());
+		this.titleLabel.setFont( clockFaceConfig.getParameters().getTitleFont().getFont() );
+		this.titleLabel.setForeground( getDisplay().getSystemColor(SWT.COLOR_WHITE));
 		this.titleLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
+
+		final Font clockFont = clockFaceConfig.getParameters().getClockFont().getFont();
+		final Color color = clockFaceConfig.getParameters().getColor1(new Color(Display.getCurrent(), 0, 200, 0));
+		final Color shadowColor = clockFaceConfig.getParameters().getColor2(new Color(Display.getCurrent(), 0, 20, 0));
 		
-		this.timeDisplay = new DigitalSegments(this, this.font, timeShadow, color, timeShadow, shadowColor);
+		//
+		// Time Display
+		//
+		this.timeDisplay = new DigitalSegments(this, clockFont, timeShadow, color, timeShadow, shadowColor);
 		this.timeDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 
-		this.dateDisplay = new DigitalSegments(this, this.font, dateShadow, color, dateShadow, shadowColor);
+		//
+		// Date Display
+		//
+		this.dateDisplay = new DigitalSegments(this, clockFont, dateShadow, color, dateShadow, shadowColor);
 		this.dateDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 	}
 

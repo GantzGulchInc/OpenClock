@@ -3,7 +3,6 @@ package com.gantzgulch.openclock.swt.app.clock.digital;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -43,8 +42,8 @@ public class DigitalSegments extends Composite {
 		
 		final Point p = FontUtil.computeExtents(this.shadowLabel, shadowLabelText);
 		
-		this.label.setBounds(0, 0, p.x, p.y);
-		this.shadowLabel.setBounds(0, 0, p.x, p.y);
+		this.label.setBounds(0, 0, p.x + 6, p.y + 6);
+		this.shadowLabel.setBounds(0, 0, p.x + 6, p.y + 6);
 	}
 
 	public void setText(final String text) {

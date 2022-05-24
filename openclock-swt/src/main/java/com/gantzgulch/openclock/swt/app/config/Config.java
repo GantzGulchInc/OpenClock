@@ -15,15 +15,15 @@ public class Config {
 	@JsonProperty("display")
 	private ClockDisplayConfig displayConfig;
 	
-	@JsonProperty("clocks")
-	private List<ClockConfig> clockConfigs;
+	@JsonProperty("clockFaces")
+	private List<ClockFaceConfig> clockFaceConfigs;
 	
 	public ClockDisplayConfig getDisplayConfig() {
 		return displayConfig;
 	}
 	
-	public List<ClockConfig> getClockConfigs() {
-		return clockConfigs;
+	public List<ClockFaceConfig> getClockConfigs() {
+		return clockFaceConfigs;
 	}
 	
 	public static Config load() {
