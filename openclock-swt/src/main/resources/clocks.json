@@ -9,6 +9,7 @@
 			"type": "Digital12Hour",
 			"timeZone": "utc", 
 			"parameters": {
+				"background": "#101010",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -16,7 +17,7 @@
 					"italic": false
 				},
 				"clockFont": {
-					"name": "DSEG14Modern",
+					"name": "DSEG14 Modern",
 					"height": 36,
 					"bold": true,
 					"italic": false
@@ -31,6 +32,7 @@
 			"type": "Digital24Hour",
 			"timeZone": "utc",
 			"parameters": {
+				"background": "#101010",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -38,7 +40,7 @@
 					"italic": false
 				},
 				"clockFont": {
-					"name": "DSEG7Modern",
+					"name": "DSEG7 Modern",
 					"height": 36,
 					"bold": true,
 					"italic": false
@@ -53,6 +55,7 @@
 			"type": "Digital12Hour",
 			"timeZone": "America/Detroit",
 			"parameters": {
+				"background": "#101010",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -60,7 +63,7 @@
 					"italic": false
 				},
 				"clockFont": {
-					"name": "DSEG14Modern",
+					"name": "DSEG14 Modern",
 					"height": 36,
 					"bold": true,
 					"italic": false
@@ -75,6 +78,7 @@
 			"type": "Digital24Hour",
 			"timeZone": "America/Detroit",
 			"parameters": {
+				"background": "#101010",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -82,12 +86,11 @@
 					"italic": false
 				},
 				"clockFont": {
-					"name": "DSEG7Modern",
+					"name": "DSEG7 Modern",
 					"height": 36,
 					"bold": true,
 					"italic": false
 				},
-				"background": "#101020",
 				"color1": "",
 				"color2": "",
 				"color3": ""
@@ -98,6 +101,7 @@
 			"type": "Digital12Hour",
 			"timeZone": "America/Los_Angeles",
 			"parameters": {
+				"background": "#101010",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -105,7 +109,7 @@
 					"italic": false
 				},
 				"clockFont": {
-					"name": "DSEG14Modern",
+					"name": "DSEG14 Modern",
 					"height": 36,
 					"bold": true,
 					"italic": false
@@ -120,6 +124,7 @@
 			"type": "Digital24Hour",
 			"timeZone": "America/Los_Angeles",
 			"parameters": {
+				"background": "#101010",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -127,7 +132,7 @@
 					"italic": false
 				},
 				"clockFont": {
-					"name": "DSEG7Modern",
+					"name": "DSEG7 Modern",
 					"height": 36,
 					"bold": true,
 					"italic": false

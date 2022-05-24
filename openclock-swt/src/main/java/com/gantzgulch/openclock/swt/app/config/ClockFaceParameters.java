@@ -1,7 +1,9 @@
 package com.gantzgulch.openclock.swt.app.config;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gantzgulch.openclock.swt.app.util.ColorParser;
@@ -45,8 +47,8 @@ public class ClockFaceParameters {
 		return clockFont;
 	}
 	
-	public Color getBackground(final Color defaultColor) {
-		return ColorParser.parse(background, defaultColor);
+	public Color getBackground() {
+		return ColorParser.parse(background, Display.getCurrent().getSystemColor(SWT.COLOR_BLACK));
 	}
 	
 	public Color getColor1(final Color defaultColor) {

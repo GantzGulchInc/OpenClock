@@ -4,10 +4,10 @@
   <id>jar-with-dependencies</id>
   <formats>
     <format>tar.gz</format>
+    <format>zip</format>
   </formats>
   <includeBaseDirectory>true</includeBaseDirectory>
   <baseDirectory>/</baseDirectory>
-  <!-- <baseDirectory>PodRestoreUtility</baseDirectory> -->
   <files>
   	<file>
   		<source>${project.build.directory}/${artifactId}-${version}.${packaging}</source>

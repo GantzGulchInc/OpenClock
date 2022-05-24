@@ -49,7 +49,7 @@ public class Main implements Runnable, ControlListener {
 		shell = new Shell(display);
 		shell.setText("OpenClock");
 		shell.setBackground( config.getDisplayConfig().getBackground(display.getSystemColor(SWT.COLOR_BLACK)));
-		shell.setBackgroundMode(SWT.INHERIT_FORCE);
+		//shell.setBackgroundMode(SWT.INHERIT_FORCE);
 
 		final GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = config.getDisplayConfig().getColumns();
@@ -116,6 +116,11 @@ public class Main implements Runnable, ControlListener {
 
 	public static void main(final String[] args) {
 
+		if( args.length > 0 && "listFonts".equals(args[0]) ) {
+			FontLister.run();
+			System.exit(0);
+		}
+		
 		final Config config = Config.load();
 		
 		final Main main = new Main(config);

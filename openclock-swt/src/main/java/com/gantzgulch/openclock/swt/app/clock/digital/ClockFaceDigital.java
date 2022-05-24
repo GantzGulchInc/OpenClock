@@ -39,7 +39,8 @@ public class ClockFaceDigital extends AbstractClockFace {
 			final String dateFormat, //
 			final String dateShadow) {
 
-		super(parent);
+		super(parent, clockFaceConfig);
+		
 		this.clockFaceConfig = clockFaceConfig;
 
 		this.timeFormat = timeFormat;
@@ -57,6 +58,8 @@ public class ClockFaceDigital extends AbstractClockFace {
 
 	private void createUi() {
 
+		this.setBackground(clockFaceConfig.getParameters().getBackground());
+
 		final GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 1;
 		gridLayout.makeColumnsEqualWidth = true;
@@ -64,7 +67,7 @@ public class ClockFaceDigital extends AbstractClockFace {
 		gridLayout.marginWidth = 20;
 
 		this.setLayout(gridLayout);
-		this.setBackground(clockFaceConfig.getParameters().getBackground(null));
+		
 
 		//
 		// Title
@@ -72,6 +75,7 @@ public class ClockFaceDigital extends AbstractClockFace {
 		this.titleLabel = new Label(this, SWT.NONE);
 		this.titleLabel.setText(this.clockFaceConfig.getTitle());
 		this.titleLabel.setFont( clockFaceConfig.getParameters().getTitleFont().getFont() );
+		this.titleLabel.setBackground( clockFaceConfig.getParameters().getBackground() );
 		this.titleLabel.setForeground( getDisplay().getSystemColor(SWT.COLOR_WHITE));
 		this.titleLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 
@@ -82,13 +86,13 @@ public class ClockFaceDigital extends AbstractClockFace {
 		//
 		// Time Display
 		//
-		this.timeDisplay = new DigitalSegments(this, clockFont, timeShadow, color, timeShadow, shadowColor);
+		this.timeDisplay = new DigitalSegments(this, clockFaceConfig, clockFont, timeShadow, color, timeShadow, shadowColor);
 		this.timeDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 
 		//
 		// Date Display
 		//
-		this.dateDisplay = new DigitalSegments(this, clockFont, dateShadow, color, dateShadow, shadowColor);
+		this.dateDisplay = new DigitalSegments(this, clockFaceConfig, clockFont, dateShadow, color, dateShadow, shadowColor);
 		this.dateDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 	}
 

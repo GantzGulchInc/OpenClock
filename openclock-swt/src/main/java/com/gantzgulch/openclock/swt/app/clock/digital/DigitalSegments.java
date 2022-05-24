@@ -7,6 +7,7 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
+import com.gantzgulch.openclock.swt.app.config.ClockFaceConfig;
 import com.gantzgulch.openclock.swt.app.util.FontUtil;
 
 public class DigitalSegments extends Composite {
@@ -16,13 +17,16 @@ public class DigitalSegments extends Composite {
 	private Label shadowLabel;
 
 	public DigitalSegments(final Composite parent, //
+			final ClockFaceConfig clockFaceConfig, //
 			final Font font, //
 			final String labelText, //
 			final Color labelColor, //
 			final String shadowLabelText, //
 			final Color shadowLabelColor) {
 
-		super(parent, SWT.TRANSPARENT | SWT.NO_BACKGROUND);
+		super(parent, SWT.NONE);
+		
+		this.setBackground( clockFaceConfig.getParameters().getBackground() );
 		
 		this.font = font;
 		
@@ -30,13 +34,13 @@ public class DigitalSegments extends Composite {
 		this.label.setFont(this.font);
 		this.label.setText(labelText);
 		this.label.setForeground(labelColor);
-		this.label.setBackground(null);
+		this.label.setBackground( clockFaceConfig.getParameters().getBackground() );
 		
 		this.shadowLabel = new Label(this, SWT.NONE);
 		this.shadowLabel.setFont(this.font);
 		this.shadowLabel.setText(shadowLabelText);
 		this.shadowLabel.setForeground(shadowLabelColor);
-		this.shadowLabel.setBackground(null);
+		this.shadowLabel.setBackground( clockFaceConfig.getParameters().getBackground() );
 		
 		this.label.moveAbove(this.shadowLabel);
 		

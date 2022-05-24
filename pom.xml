@@ -73,28 +73,32 @@
 	</properties>
 
 	<profiles>
+
 		<profile>
-			<id>JEN_BUILD_NUMBER_SET</id>
+			<id>Linux</id>
 			<activation>
-				<property>
-					<name>env.BUILD_NUMBER</name>
-				</property>
+				<activeByDefault>true</activeByDefault>
 			</activation>
-			<properties>
-				<jenkins_build_number>${env.BUILD_NUMBER}</jenkins_build_number>
-			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
+					<version>3.119.0</version>
+				</dependency>
+			</dependencies>
 		</profile>
+
 		<profile>
-			<id>JEN_BUILD_NUMBER_UNSET</id>
-			<activation>
-				<property>
-					<name>!env.BUILD_NUMBER</name>
-				</property>
-			</activation>
-			<properties>
-				<jenkins_build_number>LOCAL</jenkins_build_number>
-			</properties>
+			<id>Windows</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
+					<version>3.119.0</version>
+				</dependency>
+			</dependencies>
 		</profile>
+
 		<profile>
 			<id>gantzgulch-signing</id>
 			<build>
@@ -127,17 +131,8 @@
 
 		<dependencies>
 
-			<dependency>
-				<groupId>org.eclipse.platform</groupId>
-				<artifactId>org.eclipse.swt</artifactId>
-				<version>3.119.0</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.eclipse.platform</groupId>
-				<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
-				<version>3.119.0</version>
-			</dependency>
+			<!-- <dependency> <groupId>org.eclipse.platform</groupId> <artifactId>org.eclipse.swt</artifactId> 
+				<version>3.119.0</version> </dependency> -->
 
 			<!-- GantzGulch Tools -->
 			<dependency>
