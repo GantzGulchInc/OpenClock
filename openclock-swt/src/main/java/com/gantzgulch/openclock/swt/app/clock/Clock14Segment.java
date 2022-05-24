@@ -10,11 +10,13 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
 
 public class Clock14Segment extends BaseClock {
 
+	private String title;
+	
 	private Font font;
-
 	private Color color;
 	private Color shadowColor;
 
@@ -28,11 +30,13 @@ public class Clock14Segment extends BaseClock {
 	private String dateShadow;
 	private SimpleDateFormat dateFormatter;
 
+	private Label titleLabel;
 	private ClockDisplay timeDisplay;
 	private ClockDisplay dateDisplay;
 
 	public Clock14Segment(//
 			final Composite parent, //
+			final String title, //
 			final Font font, //
 			final Color color, //
 			final Color shadowColor, //
@@ -44,6 +48,8 @@ public class Clock14Segment extends BaseClock {
 
 		super(parent);
 
+		this.title = title;
+		
 		this.font = font;
 		this.color = color;
 		this.shadowColor = shadowColor;
@@ -73,6 +79,11 @@ public class Clock14Segment extends BaseClock {
 
 		this.setLayout(gridLayout);
 
+		this.titleLabel = new Label(this, SWT.NONE);
+		this.titleLabel.setText(this.title);
+		this.titleLabel.setFont( updateFont(getDisplay().getSystemFont(), 24));
+		this.titleLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
+		
 		this.timeDisplay = new ClockDisplay(this, this.font, timeShadow, color, timeShadow, shadowColor);
 		this.timeDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 

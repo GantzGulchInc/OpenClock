@@ -20,8 +20,8 @@ public class Clock24Hour14Segment extends Clock14Segment {
 	private static String dateFormat = "yyyy/MM/dd";
 	private static String dateShadow = "~~~~~~~~~~";
 
-	public Clock24Hour14Segment(final Composite parent, final TimeZone timezone) {
-		super(parent, font, color, shadowColor, timezone, timeFormat, timeShadow, dateFormat, dateShadow);
+	public Clock24Hour14Segment(final Composite parent, final String title, final TimeZone timezone) {
+		super(parent, title, font, color, shadowColor, timezone, timeFormat, timeShadow, dateFormat, dateShadow);
 	}
 
 }

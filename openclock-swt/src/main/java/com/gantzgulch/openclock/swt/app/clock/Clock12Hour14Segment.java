@@ -17,12 +17,12 @@ public class Clock12Hour14Segment extends Clock14Segment {
 	private static String timeFormat = "hh:mm:ss aa";
 	private static String timeShadow = "~~:~~:~~ ~~";
 
-	private static String dateFormat = "EEE MMM WW yyyy";
+	private static String dateFormat = "EEE MMM dd yyyy";
 	private static String dateShadow = "~~~ ~~~ ~~ ~~~~";
 
-	public Clock12Hour14Segment(final Composite parent, final TimeZone timezone) {
+	public Clock12Hour14Segment(final Composite parent, final String title, final TimeZone timezone) {
 
-		super(parent, font, color, shadowColor, timezone, timeFormat, timeShadow, dateFormat, dateShadow);
+		super(parent, title, font, color, shadowColor, timezone, timeFormat, timeShadow, dateFormat, dateShadow);
 
 	}
 

@@ -1,0 +1,38 @@
+{
+	"display": {
+		"columns": 2
+	},
+	"clocks": [
+		{
+			"title": "UTC 12 Hour",
+			"type": "Digital12Hour",
+			"timeZone": "utc"
+		},
+		{
+			"title": "UTC 24 Hour",
+			"type": "Digital24Hour",
+			"timeZone": "utc"
+		},
+		{
+			"title": "Detroit 12 Hour",
+			"type": "Digital12Hour",
+			"timeZone": "America/Detroit"
+		},
+		{
+			"title": "Detroit 24 Hour",
+			"type": "Digital24Hour",
+			"timeZone": "America/Detroit"
+		},
+		{
+			"title": "Los Angeles 12 Hour",
+			"type": "Digital12Hour",
+			"timeZone": "America/Los_Angeles"
+		},
+		{
+			"title": "Los Angeles 24 Hour",
+			"type": "Digital24Hour",
+			"timeZone": "America/Los_Angeles"
+		}
+	]
+	
+}
