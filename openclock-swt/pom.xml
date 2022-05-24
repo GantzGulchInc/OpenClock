@@ -19,10 +19,18 @@
 	<dependencies>
 
 
+<!-- 
+		<dependency>
+			<groupId>org.eclipse.platform</groupId>
+			<artifactId>org.eclipse.swt</artifactId>
+		</dependency>
+ -->
+ 
 		<dependency>
 			<groupId>org.eclipse.platform</groupId>
 			<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
 		</dependency>
+
 
 		<!-- GantzGulch Tools -->
 		<dependency>
@@ -80,7 +88,7 @@
 		</dependency>
 	</dependencies>
 
-<build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -116,5 +124,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>

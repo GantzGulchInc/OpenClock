@@ -20,7 +20,7 @@
       <directory>${project.basedir}/src/bin</directory>
       <outputDirectory>/</outputDirectory>
       <includes>
-        <include>pru</include>
+        <include>openclock</include>
       </includes>
     </fileSet>
     <fileSet>

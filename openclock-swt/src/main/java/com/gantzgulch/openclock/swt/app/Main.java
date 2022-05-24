@@ -48,6 +48,7 @@ public class Main implements Runnable, ControlListener {
 		display = new Display();
 		
 		shell = new Shell(display);
+		shell.setText("OpenClock");
 		shell.setBackground( display.getSystemColor(SWT.COLOR_BLACK));
 		shell.setBackgroundMode(SWT.INHERIT_FORCE);
 
@@ -62,7 +63,7 @@ public class Main implements Runnable, ControlListener {
 		shell.addDisposeListener( new DisposeListener() {
 			@Override
 			public void widgetDisposed(DisposeEvent e) {
-				System.exit(0);;
+				// System.exit(0);;
 			}
 		});
 
@@ -114,10 +115,10 @@ public class Main implements Runnable, ControlListener {
 
 		LOG.info("run: Running...");
 
-		final Timer timer = new Timer();
+		final Timer timer = new Timer(true);
 		
 		final ClockTimerTask timerTask = new ClockTimerTask(clocks);
-		timer.scheduleAtFixedRate( timerTask, 1000, 500);
+		timer.scheduleAtFixedRate( timerTask, 0, 500);
 		
 		shell.pack();
 		
