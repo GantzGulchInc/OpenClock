@@ -7,9 +7,9 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
-public abstract class BaseClock extends Composite implements Clock {
+public abstract class AbstractClockFace extends Composite implements ClockFace {
 
-	public BaseClock(final Composite parent) {
+	public AbstractClockFace(final Composite parent) {
 		super(parent, SWT.TRANSPARENT | SWT.NO_BACKGROUND);
 	}
 
@@ -24,14 +24,4 @@ public abstract class BaseClock extends Composite implements Clock {
 	
 	protected abstract void updateInternal();
 
-	protected Font updateFont(final Font font, final int newSize) {
-		
-		final FontData[] fontData = font.getFontData();
-		
-		for(int i=0; i < fontData.length; i++) {
-			fontData[i].setHeight(newSize);
-		}
-		
-		return new Font(Display.getCurrent(), fontData);
-	}
 }

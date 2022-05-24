@@ -16,11 +16,11 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
 import com.gantzgulch.logging.core.GGLogger;
-import com.gantzgulch.openclock.swt.app.clock.BaseClock;
-import com.gantzgulch.openclock.swt.app.clock.Clock;
-import com.gantzgulch.openclock.swt.app.clock.Clock12Hour14Segment;
-import com.gantzgulch.openclock.swt.app.clock.Clock24Hour7Segment;
+import com.gantzgulch.openclock.swt.app.clock.AbstractClockFace;
+import com.gantzgulch.openclock.swt.app.clock.ClockFace;
 import com.gantzgulch.openclock.swt.app.clock.ClockTimerTask;
+import com.gantzgulch.openclock.swt.app.clock.digital.Clock12Hour14Segment;
+import com.gantzgulch.openclock.swt.app.clock.digital.Clock24Hour7Segment;
 import com.gantzgulch.openclock.swt.app.config.ClockConfig;
 import com.gantzgulch.openclock.swt.app.config.Config;
 
@@ -33,7 +33,7 @@ public class Main implements Runnable, ControlListener {
 	private Display display;
 	private Shell shell;
 
-	private List<Clock> clocks = new ArrayList<>();
+	private List<ClockFace> clocks = new ArrayList<>();
 	
 	public Main(final Config config) {
 
@@ -72,7 +72,7 @@ public class Main implements Runnable, ControlListener {
 			LOG.info("Building: %s", clockConfig);
 			
 			final GridData clockGridData = new GridData(SWT.CENTER, SWT.CENTER, true, true);
-			final BaseClock clock = createClock(shell, clockConfig);
+			final AbstractClockFace clock = createClock(shell, clockConfig);
 			clock.setLayoutData(clockGridData);
 			
 			clocks.add(clock);
@@ -80,7 +80,7 @@ public class Main implements Runnable, ControlListener {
 		
 	}
 	
-	private BaseClock createClock(final Shell shell, final ClockConfig clockConfig) {
+	private AbstractClockFace createClock(final Shell shell, final ClockConfig clockConfig) {
 		
 		final TimeZone timezone = TimeZone.getTimeZone(clockConfig.getTimeZone());
 		final String title = clockConfig.getTitle();

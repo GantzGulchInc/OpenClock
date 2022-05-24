@@ -1,4 +1,4 @@
-package com.gantzgulch.openclock.swt.app.clock;
+package com.gantzgulch.openclock.swt.app.clock.digital;
 
 import java.util.TimeZone;
 

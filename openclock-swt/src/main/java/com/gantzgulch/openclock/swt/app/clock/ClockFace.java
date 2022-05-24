@@ -1,6 +1,6 @@
 package com.gantzgulch.openclock.swt.app.clock;
 
-public interface Clock {
+public interface ClockFace {
 
 	void update();
 	

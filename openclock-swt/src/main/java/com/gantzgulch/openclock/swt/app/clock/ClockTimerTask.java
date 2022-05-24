@@ -5,15 +5,15 @@ import java.util.TimerTask;
 
 public class ClockTimerTask extends TimerTask {
 
-	private final List<Clock> clocks;
+	private final List<ClockFace> clocks;
 
-	public ClockTimerTask(final List<Clock> clocks) {
+	public ClockTimerTask(final List<ClockFace> clocks) {
 		this.clocks = clocks;
 	}
 
 	@Override
 	public void run() {
-		for (final Clock clock : clocks) {
+		for (final ClockFace clock : clocks) {
 			clock.update();
 		}
 	}

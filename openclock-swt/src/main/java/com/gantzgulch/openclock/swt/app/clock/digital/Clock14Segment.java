@@ -1,4 +1,4 @@
-package com.gantzgulch.openclock.swt.app.clock;
+package com.gantzgulch.openclock.swt.app.clock.digital;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,7 +12,10 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
-public class Clock14Segment extends BaseClock {
+import com.gantzgulch.openclock.swt.app.clock.AbstractClockFace;
+import com.gantzgulch.openclock.swt.app.util.FontUtil;
+
+public class Clock14Segment extends AbstractClockFace {
 
 	private String title;
 	
@@ -31,8 +34,8 @@ public class Clock14Segment extends BaseClock {
 	private SimpleDateFormat dateFormatter;
 
 	private Label titleLabel;
-	private ClockDisplay timeDisplay;
-	private ClockDisplay dateDisplay;
+	private DigitalSegments timeDisplay;
+	private DigitalSegments dateDisplay;
 
 	public Clock14Segment(//
 			final Composite parent, //
@@ -81,13 +84,13 @@ public class Clock14Segment extends BaseClock {
 
 		this.titleLabel = new Label(this, SWT.NONE);
 		this.titleLabel.setText(this.title);
-		this.titleLabel.setFont( updateFont(getDisplay().getSystemFont(), 24));
+		this.titleLabel.setFont( FontUtil.updateFont(getDisplay().getSystemFont(), 24));
 		this.titleLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 		
-		this.timeDisplay = new ClockDisplay(this, this.font, timeShadow, color, timeShadow, shadowColor);
+		this.timeDisplay = new DigitalSegments(this, this.font, timeShadow, color, timeShadow, shadowColor);
 		this.timeDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 
-		this.dateDisplay = new ClockDisplay(this, this.font, dateShadow, color, dateShadow, shadowColor);
+		this.dateDisplay = new DigitalSegments(this, this.font, dateShadow, color, dateShadow, shadowColor);
 		this.dateDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 	}
 
