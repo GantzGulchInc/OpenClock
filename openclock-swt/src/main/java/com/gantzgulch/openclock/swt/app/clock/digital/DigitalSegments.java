@@ -10,13 +10,12 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 
-import com.gantzgulch.logging.core.GGLogger;
 import com.gantzgulch.openclock.swt.app.config.ClockFaceConfig;
 import com.gantzgulch.openclock.swt.app.util.FontUtil;
 
 public class DigitalSegments extends Canvas implements PaintListener {
 
-	private static final GGLogger LOG = GGLogger.getLogger(DigitalSegments.class);
+	// private static final GGLogger LOG = GGLogger.getLogger(DigitalSegments.class);
 	
 	private Color backgroundColor;
 	
@@ -45,10 +44,10 @@ public class DigitalSegments extends Canvas implements PaintListener {
 		this.setFont(this.font);
 		
 		final Point p = FontUtil.computeExtents(this, this.text);
+		p.x += 10;
+		p.y += 10;
 		
-		LOG.info("setting canvas size: %d, %d", p.x, p.y);
-		
-		this.setSize(p.x + 10, p.y + 10);
+		this.setSize(p);
 		
 		this.addPaintListener(this);
 	}
@@ -79,11 +78,9 @@ public class DigitalSegments extends Canvas implements PaintListener {
 		e.gc.setBackground( this.backgroundColor);
 		e.gc.fillRectangle(clientArea);
 
-		e.gc.setBackground( this.backgroundColor );
 		e.gc.setForeground(this.shadowColor);
 		e.gc.drawText(this.shadowText, 5, 5, true);
 
-		e.gc.setBackground( this.backgroundColor );
 		e.gc.setForeground(this.color);
 		e.gc.drawText(this.text, 5, 5, true);
 	}
