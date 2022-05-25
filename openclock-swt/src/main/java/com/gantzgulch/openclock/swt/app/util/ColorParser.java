@@ -7,11 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 
-import com.gantzgulch.logging.core.GGLogger;
-
 public class ColorParser {
-
-	private static final GGLogger LOG = GGLogger.getLogger(ColorParser.class);
 
 	private static final String COLOR_24 = "^#(\\p{XDigit}\\p{XDigit})(\\p{XDigit}\\p{XDigit})(\\p{XDigit}\\p{XDigit})$";
 	// private static final String COLOR_12 =
