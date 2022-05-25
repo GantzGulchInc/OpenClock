@@ -19,15 +19,6 @@ public class ClockFaceParameters {
 	@JsonProperty("background")
 	private String background;
 	
-	@JsonProperty("color1")
-	private String color1;
-	
-	@JsonProperty("color2")
-	private String color2;
-	
-	@JsonProperty("color3")
-	private String color3;
-
 	public FontConfig getTitleFont() {
 		
 		if( titleFont == null ) {
@@ -49,17 +40,6 @@ public class ClockFaceParameters {
 	
 	public Color getBackground() {
 		return ColorParser.parse(background, Display.getCurrent().getSystemColor(SWT.COLOR_BLACK));
-	}
-	
-	public Color getColor1(final Color defaultColor) {
-		return ColorParser.parse(color1, defaultColor);
-	}
-	
-	public Color getColor2(final Color defaultColor) {
-		return ColorParser.parse(color2, defaultColor);
-	}
-	public Color getColor3(final Color defaultColor) {
-		return ColorParser.parse(color3, defaultColor);
 	}
 	
 	@Override

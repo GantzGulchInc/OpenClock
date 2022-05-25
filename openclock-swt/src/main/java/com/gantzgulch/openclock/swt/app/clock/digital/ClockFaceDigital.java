@@ -58,8 +58,6 @@ public class ClockFaceDigital extends AbstractClockFace {
 
 	private void createUi() {
 
-		this.setBackground(clockFaceConfig.getParameters().getBackground());
-
 		final GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 1;
 		gridLayout.makeColumnsEqualWidth = true;
@@ -67,7 +65,6 @@ public class ClockFaceDigital extends AbstractClockFace {
 		gridLayout.marginWidth = 20;
 
 		this.setLayout(gridLayout);
-		
 
 		//
 		// Title
@@ -79,20 +76,16 @@ public class ClockFaceDigital extends AbstractClockFace {
 		this.titleLabel.setForeground( getDisplay().getSystemColor(SWT.COLOR_WHITE));
 		this.titleLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 
-		final Font clockFont = clockFaceConfig.getParameters().getClockFont().getFont();
-		final Color color = clockFaceConfig.getParameters().getColor1(new Color(Display.getCurrent(), 0, 200, 0));
-		final Color shadowColor = clockFaceConfig.getParameters().getColor2(new Color(Display.getCurrent(), 0, 20, 0));
-		
 		//
 		// Time Display
 		//
-		this.timeDisplay = new DigitalSegments(this, clockFaceConfig, clockFont, timeShadow, color, timeShadow, shadowColor);
+		this.timeDisplay = new DigitalSegments(this, clockFaceConfig, timeShadow, timeShadow);
 		this.timeDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 
 		//
 		// Date Display
 		//
-		this.dateDisplay = new DigitalSegments(this, clockFaceConfig, clockFont, dateShadow, color, dateShadow, shadowColor);
+		this.dateDisplay = new DigitalSegments(this, clockFaceConfig, dateShadow, dateShadow);
 		this.dateDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 	}
 

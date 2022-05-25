@@ -17,7 +17,7 @@
 
 	<licenses>
 		<license>
-			<name>Copyright © 2019 GantzGulch, Inc. All rights reserved.</name>
+			<name>Copyright © 2022 GantzGulch, Inc. All rights reserved.</name>
 		</license>
 	</licenses>
 
@@ -44,8 +44,8 @@
 	</modules>
 
 	<scm>
-		<url>scm:git:ssh://git@github.com:GantzGulchInc/RedBanjo.git</url>
-		<connection>scm:git:ssh://git@github.com:GantzGulchInc/RedBanjo.git</connection>
+		<url>scm:git:ssh://git@github.com:GantzGulchInc/OpenClock.git</url>
+		<connection>scm:git:ssh://git@github.com:GantzGulchInc/OpenClock.git</connection>
 	</scm>
 
 	<!-- Complete this section when we have a CI build tool. -->
@@ -131,9 +131,6 @@
 
 		<dependencies>
 
-			<!-- <dependency> <groupId>org.eclipse.platform</groupId> <artifactId>org.eclipse.swt</artifactId> 
-				<version>3.119.0</version> </dependency> -->
-
 			<!-- GantzGulch Tools -->
 			<dependency>
 				<groupId>com.gantzgulch.tools</groupId>
@@ -152,41 +149,8 @@
 			</dependency>
 			<dependency>
 				<groupId>com.gantzgulch.tools</groupId>
-				<artifactId>gantzgulch-tools-crypto</artifactId>
-				<version>${GANTZGULCH_TOOLS}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.gantzgulch.tools</groupId>
-				<artifactId>gantzgulch-tools-jwt</artifactId>
-				<version>${GANTZGULCH_TOOLS}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.gantzgulch.tools</groupId>
-				<artifactId>gantzgulch-tools-http</artifactId>
-				<version>${GANTZGULCH_TOOLS}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.gantzgulch.tools</groupId>
 				<artifactId>gantzgulch-tools-json</artifactId>
 				<version>${GANTZGULCH_TOOLS}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.gantzgulch.tools</groupId>
-				<artifactId>gantzgulch-tools-hibernate</artifactId>
-				<version>${GANTZGULCH_TOOLS}</version>
-			</dependency>
-
-			<!-- Bouncy Castle -->
-			<dependency>
-				<groupId>org.bouncycastle</groupId>
-				<artifactId>bcprov-jdk15on</artifactId>
-				<version>1.68</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.bouncycastle</groupId>
-				<artifactId>bcpkix-jdk15on</artifactId>
-				<version>1.68</version>
 			</dependency>
 
 			<!-- Apache Commons -->
@@ -200,6 +164,7 @@
 				<artifactId>commons-io</artifactId>
 				<version>2.8.0</version>
 			</dependency>
+
 			<!-- Jackson -->
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>

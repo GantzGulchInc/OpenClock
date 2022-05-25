@@ -9,7 +9,7 @@
 			"type": "Digital12Hour",
 			"timeZone": "utc", 
 			"parameters": {
-				"background": "#101010",
+				"background": "#000000",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -18,13 +18,12 @@
 				},
 				"clockFont": {
 					"name": "DSEG14 Modern",
-					"height": 36,
+					"height": 28,
 					"bold": true,
-					"italic": false
-				},
-				"color1": "#00C800",
-				"color2": "#001400",
-				"color3": ""
+					"italic": false,
+					"color": "#00C800",
+					"shadowColor": "#001400"
+				}
 			}
 		},
 		{
@@ -32,7 +31,7 @@
 			"type": "Digital24Hour",
 			"timeZone": "utc",
 			"parameters": {
-				"background": "#101010",
+				"background": "#fb7c00",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -41,13 +40,12 @@
 				},
 				"clockFont": {
 					"name": "DSEG7 Modern",
-					"height": 36,
+					"height": 28,
 					"bold": true,
-					"italic": false
-				},
-				"color1": "",
-				"color2": "",
-				"color3": ""
+					"italic": false,
+					"color": "#222222",
+					"shadowColor": "#d66a00"
+				}
 			}
 		},
 		{
@@ -55,7 +53,7 @@
 			"type": "Digital12Hour",
 			"timeZone": "America/Detroit",
 			"parameters": {
-				"background": "#101010",
+				"background": "#000000",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -64,13 +62,12 @@
 				},
 				"clockFont": {
 					"name": "DSEG14 Modern",
-					"height": 36,
-					"bold": true,
-					"italic": false
-				},
-				"color1": "",
-				"color2": "",
-				"color3": ""
+					"height": 28,
+					"bold": false,
+					"italic": false,
+					"color": "#FFFFFF",
+					"shadowColor": "#101040"
+				}
 			}
 		},
 		{
@@ -78,7 +75,7 @@
 			"type": "Digital24Hour",
 			"timeZone": "America/Detroit",
 			"parameters": {
-				"background": "#101010",
+				"background": "#000000",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -87,13 +84,10 @@
 				},
 				"clockFont": {
 					"name": "DSEG7 Modern",
-					"height": 36,
+					"height": 28,
 					"bold": true,
 					"italic": false
-				},
-				"color1": "",
-				"color2": "",
-				"color3": ""
+				}
 			}
 		},
 		{
@@ -101,7 +95,7 @@
 			"type": "Digital12Hour",
 			"timeZone": "America/Los_Angeles",
 			"parameters": {
-				"background": "#101010",
+				"background": "#000000",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -110,13 +104,10 @@
 				},
 				"clockFont": {
 					"name": "DSEG14 Modern",
-					"height": 36,
+					"height": 28,
 					"bold": true,
 					"italic": false
-				},
-				"color1": "",
-				"color2": "",
-				"color3": ""
+				}
 			}
 		},
 		{
@@ -124,7 +115,7 @@
 			"type": "Digital24Hour",
 			"timeZone": "America/Los_Angeles",
 			"parameters": {
-				"background": "#101010",
+				"background": "#000000",
 				"titleFont": {
 					"name": "Comic Code",
 					"height": 24,
@@ -133,13 +124,10 @@
 				},
 				"clockFont": {
 					"name": "DSEG7 Modern",
-					"height": 36,
+					"height": 28,
 					"bold": true,
 					"italic": false
-				},
-				"color1": "",
-				"color2": "",
-				"color3": ""
+				}
 			}
 		}
  	]

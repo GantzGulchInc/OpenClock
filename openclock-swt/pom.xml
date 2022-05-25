@@ -62,10 +62,6 @@
 		</dependency>
 		<dependency>
 			<groupId>com.gantzgulch.tools</groupId>
-			<artifactId>gantzgulch-tools-crypto</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.gantzgulch.tools</groupId>
 			<artifactId>gantzgulch-tools-json</artifactId>
 		</dependency>
 
@@ -78,6 +74,7 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 		</dependency>
+
 		<!-- Jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
