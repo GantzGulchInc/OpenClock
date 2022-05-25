@@ -73,7 +73,7 @@ public class ClockFaceDigital extends AbstractClockFace {
 		this.titleLabel.setText(this.clockFaceConfig.getTitle());
 		this.titleLabel.setFont( clockFaceConfig.getParameters().getTitleFont().getFont() );
 		this.titleLabel.setBackground( clockFaceConfig.getParameters().getBackground() );
-		this.titleLabel.setForeground( getDisplay().getSystemColor(SWT.COLOR_WHITE));
+		this.titleLabel.setForeground( clockFaceConfig.getParameters().getTitleFont().getColor());
 		this.titleLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 
 		//

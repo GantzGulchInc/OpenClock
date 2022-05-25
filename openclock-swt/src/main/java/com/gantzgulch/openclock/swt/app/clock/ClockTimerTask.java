@@ -1,21 +1,20 @@
 package com.gantzgulch.openclock.swt.app.clock;
 
-import java.util.List;
 import java.util.TimerTask;
+
+import com.gantzgulch.openclock.swt.app.Application;
 
 public class ClockTimerTask extends TimerTask {
 
-	private final List<ClockFace> clocks;
+	private final Application app;
 
-	public ClockTimerTask(final List<ClockFace> clocks) {
-		this.clocks = clocks;
+	public ClockTimerTask(final Application app) {
+		this.app = app;
 	}
 
 	@Override
 	public void run() {
-		for (final ClockFace clock : clocks) {
-			clock.update();
-		}
+		app.updateClocks();
 	}
 
 }
