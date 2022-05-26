@@ -25,8 +25,8 @@ public class ClockFaceDigital extends AbstractClockFace {
 	private SimpleDateFormat dateFormatter;
 
 	private Label titleLabel;
-	private DigitalSegments timeDisplay;
-	private DigitalSegments dateDisplay;
+	private LedDisplay timeDisplay;
+	private LedDisplay dateDisplay;
 
 	public ClockFaceDigital(//
 			final Composite parent, //
@@ -76,13 +76,13 @@ public class ClockFaceDigital extends AbstractClockFace {
 		//
 		// Time Display
 		//
-		this.timeDisplay = new DigitalSegments(this, clockFaceConfig, timeShadow, timeShadow);
+		this.timeDisplay = new LedDisplay(this, clockFaceConfig, timeShadow, timeShadow);
 		this.timeDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 
 		//
 		// Date Display
 		//
-		this.dateDisplay = new DigitalSegments(this, clockFaceConfig, dateShadow, dateShadow);
+		this.dateDisplay = new LedDisplay(this, clockFaceConfig, dateShadow, dateShadow);
 		this.dateDisplay.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 	}
 

@@ -20,7 +20,8 @@
       <directory>${project.basedir}/src/bin</directory>
       <outputDirectory>/</outputDirectory>
       <includes>
-        <include>openclock</include>
+        <include>openclock.sh</include>
+        <include>openclock.bat</include>
       </includes>
     </fileSet>
     <fileSet>

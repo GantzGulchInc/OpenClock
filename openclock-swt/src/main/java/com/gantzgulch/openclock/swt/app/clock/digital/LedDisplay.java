@@ -13,7 +13,7 @@ import org.eclipse.swt.widgets.Composite;
 import com.gantzgulch.openclock.swt.app.config.ClockFaceConfig;
 import com.gantzgulch.openclock.swt.app.util.FontUtil;
 
-public class DigitalSegments extends Canvas implements PaintListener {
+public class LedDisplay extends Canvas implements PaintListener {
 
 	// private static final GGLogger LOG = GGLogger.getLogger(DigitalSegments.class);
 	
@@ -26,7 +26,7 @@ public class DigitalSegments extends Canvas implements PaintListener {
 	private String text;
 	private String shadowText;
 
-	public DigitalSegments(final Composite parent, //
+	public LedDisplay(final Composite parent, //
 			final ClockFaceConfig clockFaceConfig, //
 			final String labelText, //
 			final String shadowLabelText) {
